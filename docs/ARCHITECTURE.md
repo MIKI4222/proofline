@@ -1,0 +1,5 @@
+# Architecture
+
+`src/domain.ts` defines the contract shapes, validation and role helpers. `src/chain.ts` isolates the GenLayer SDK, configured network, reads and writes. `src/state.tsx` handles wallet selection, account/network changes, transaction lifecycle and incremental discovery. `src/App.tsx` contains routes and presentation; `src/style.css` is the design system. React Router runs as an SPA. Zod rejects malformed data; React renders contract text as text, never HTML.
+
+Discovery begins with `get_milestone_count`, reads valid IDs descending in pages of 12 and batches of four. Individual errors are retained; no failed read is interpreted as a blank row. Views and metrics are explicitly scoped to loaded records. Detail fetches the up-to-five submissions and the latest verification for each attempt with evaluation runs. Read results use a 30-second in-memory cache with in-flight deduplication; explicit refresh and finalized writes invalidate it. Authorization and post-write confirmation bypass it. The public RPC may rate-limit large histories or rapid refreshes. There is no off-chain database, indexing service or complete event history.

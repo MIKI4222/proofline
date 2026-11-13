@@ -1,0 +1,7 @@
+# Transaction lifecycle
+
+The user first sees validation and current role/state checks. A concrete SDK simulation estimates a fee deposit. The review dialog shows the operation and fee before user confirmation. The app rechecks the account, chain, role and state, asks the wallet to sign, then saves the returned transaction ID to local storage. It waits for `waitForDecision`, uses SDK `isSuccessful` (both accepted/finalized status and `FINISHED_WITH_RETURN`), then waits for finalization. It refreshes or requests a fresh contract read, and never treats a signature or hash alone as success. A decision that is rejected, undetermined or has failed execution is reported as non-success, not as an approved milestone. A tracking timeout retains the ID and offers resume; no automatic duplicate write is sent.
+
+Creation attempts to identify the new ID from fresh post-finalization reads by matching creator and submitted fields among newly appeared IDs. It redirects only for one unambiguous candidate within the bounded scan; otherwise it opens Explore. Concurrent writes or read lag can prevent identification. An evaluation's result is the separately stored contract verification—not the transaction acceptance status.
+
+No complete live write lifecycle has yet been verified. Fee simulation can fail and may be too expensive for production. Decisions can change due to protocol appeals before finalization; inspect the transaction. Explorer history and pending state remain authoritative after interruption. Local storage contains the hash and operation only.
