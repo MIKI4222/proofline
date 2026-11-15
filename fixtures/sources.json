@@ -1,0 +1,16 @@
+[
+  {
+    "added_at": "2026-11-10T10:36:27.696109+00:00",
+    "description": "User guide",
+    "position": 1,
+    "source_type": "TECHNICAL_DOCUMENTATION",
+    "source_url": "https://gist.githubusercontent.com/MIKI4222/395886a4a8645660bbcebcc18cb18043/raw/guide.md"
+  },
+  {
+    "added_at": "2026-11-10T10:38:03.560376+00:00",
+    "description": "Release notes",
+    "position": 2,
+    "source_type": "TECHNICAL_DOCUMENTATION",
+    "source_url": "https://gist.githubusercontent.com/MIKI4222/5b76d2d4fb1b997c7088b35799ec2cc5/raw/release-notes.md"
+  }
+]

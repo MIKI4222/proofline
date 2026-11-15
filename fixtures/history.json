@@ -1,0 +1,12 @@
+[
+  {
+    "assessment_number": 1,
+    "confidence": 85,
+    "evidence_strength": "MODERATE",
+    "kind": "VERIFY",
+    "observed_at": "2026-11-10T10:41:34.875775+00:00",
+    "overall_status": "SUPPORTED",
+    "previous_assessment": 0,
+    "source_count": 2
+  }
+]

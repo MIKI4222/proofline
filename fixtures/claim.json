@@ -1,0 +1,21 @@
+{
+  "assessment_count": 1,
+  "category": "TECHNICAL_CAPABILITY",
+  "claim": "The Acme Backup tool provides scheduled automatic backups and a documented restore procedure for users.",
+  "claim_id": 1,
+  "created_at": "2026-11-10T10:29:32.942503+00:00",
+  "expected_facts": [
+    "Backups can be scheduled to run automatically",
+    "A restore procedure is documented for users"
+  ],
+  "expired": false,
+  "expires_at": 0,
+  "external_ref": "",
+  "instructions": "Check the documentation and release notes. A feature counts only if the text describes how it works, not if it is merely named.",
+  "max_sources": 3,
+  "min_sources": 2,
+  "owner": "0x15E7BefCf18D10563b1f4f5416C7163e879D9e19",
+  "source_count": 2,
+  "status": "ASSESSED",
+  "updated_at": "2026-11-10T10:41:34.875775+00:00"
+}

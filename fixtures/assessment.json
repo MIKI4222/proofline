@@ -1,0 +1,112 @@
+{
+  "assessment_number": 1,
+  "claim_id": 1,
+  "claim_summary": "Two technical sources support scheduled automatic backups. One source demonstrates a restore procedure; the other only mentions the restore command.",
+  "confidence": 85,
+  "contradictory_findings": [],
+  "evidence_set": [
+    "https://gist.githubusercontent.com/MIKI4222/395886a4a8645660bbcebcc18cb18043/raw/guide.md",
+    "https://gist.githubusercontent.com/MIKI4222/5b76d2d4fb1b997c7088b35799ec2cc5/raw/release-notes.md"
+  ],
+  "evidence_strength": "MODERATE",
+  "fact_results": [
+    {
+      "contradicting_sources": [],
+      "fact": "Backups can be scheduled to run automatically",
+      "independent_contradiction_groups": 0,
+      "independent_support_groups": 1,
+      "mentioned_by": [],
+      "status": "SUPPORTED",
+      "supporting_sources": [
+        1,
+        2
+      ]
+    },
+    {
+      "contradicting_sources": [],
+      "fact": "A restore procedure is documented for users",
+      "independent_contradiction_groups": 0,
+      "independent_support_groups": 1,
+      "mentioned_by": [
+        2
+      ],
+      "status": "SUPPORTED",
+      "supporting_sources": [
+        1
+      ]
+    }
+  ],
+  "kind": "VERIFY",
+  "limitations": [
+    "Sources are provided as snippets; full documents are not available for review.",
+    "Neither source is independently verified as authentic or official.",
+    "Source 2 does not demonstrate the documented restore procedure, only mentions the command.",
+    "The analysis is limited to the exact text provided within the untrusted source blocks.",
+    "No external verification of the tool's actual functionality is performed."
+  ],
+  "observed_at": "2026-11-10T10:41:34.875775+00:00",
+  "overall_status": "SUPPORTED",
+  "previous_assessment": 0,
+  "requested_by": "0x15E7BefCf18D10563b1f4f5416C7163e879D9e19",
+  "source_count": 2,
+  "source_relationships": [
+    {
+      "a": 1,
+      "b": 2,
+      "relation": "POSSIBLY_RELATED"
+    }
+  ],
+  "source_results": [
+    {
+      "access_status": "ACCESSIBLE",
+      "evidence_excerpt": "backups run automatically on a schedule that you set with the schedule command (daily or weekly).",
+      "evidence_result": "SUPPORTS",
+      "excerpt_verified": true,
+      "facts": [
+        "SUPPORTED",
+        "SUPPORTED"
+      ],
+      "key_findings": [
+        "States backups run automatically on a schedule the user sets.",
+        "Describes a specific restore command and refers to a section detailing the steps."
+      ],
+      "limitations": [
+        "Source is a user guide snippet; full context of the document is unavailable.",
+        "The detailed restore steps are referenced but not shown in the excerpt."
+      ],
+      "possible_dependency": "",
+      "relevance": "DIRECT",
+      "source_index": 1,
+      "source_type": "TECHNICAL_DOCUMENTATION",
+      "url": "https://gist.githubusercontent.com/MIKI4222/395886a4a8645660bbcebcc18cb18043/raw/guide.md"
+    },
+    {
+      "access_status": "ACCESSIBLE",
+      "evidence_excerpt": "scheduled automatic backups can now run every 6 hours.",
+      "evidence_result": "SUPPORTS",
+      "excerpt_verified": true,
+      "facts": [
+        "SUPPORTED",
+        "MENTIONED"
+      ],
+      "key_findings": [
+        "Explicitly mentions 'scheduled automatic backups' can run every 6 hours.",
+        "Mentions the restore command but only notes a progress reporting fix, not the procedure."
+      ],
+      "limitations": [
+        "Source is release notes; focus is on new features and fixes, not comprehensive documentation.",
+        "Does not detail the restore procedure, only mentions a command improvement."
+      ],
+      "possible_dependency": "",
+      "relevance": "DIRECT",
+      "source_index": 2,
+      "source_type": "TECHNICAL_DOCUMENTATION",
+      "url": "https://gist.githubusercontent.com/MIKI4222/5b76d2d4fb1b997c7088b35799ec2cc5/raw/release-notes.md"
+    }
+  ],
+  "supporting_findings": [
+    "Backups can be scheduled to run automatically (sources 1, 2; independent groups 1)",
+    "A restore procedure is documented for users (sources 1; independent groups 1)"
+  ],
+  "unverified_aspects": []
+}

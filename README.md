@@ -50,3 +50,7 @@ Connect this folder as a repository, or upload a built site. Build command `npm 
 - Browser storage persists a submitted transaction hash for recovery, not credentials. After a timeout, resume or inspect it; do not blindly submit again. A rejected/undetermined decision is not a contract approval. Reads may lag while waiting for finality.
 - The public preview RPC can impose rate limits (observed 30 requests/minute during rapid automated checks). Large histories or repeated refreshes can fail; wait and retry.
 - Initial JS bundle is large (roughly 940 kB before gzip); code splitting is future work. Google Fonts are remote with system fallbacks.
+
+## ClaimVerifier integration — development preview
+
+Proofline includes a separate ClaimVerifier workspace for public claim reads, source inspection and assessment reports. The `/claims` routes support registration, source addition, verification and reassessment through the existing wallet flow. This implementation has **not been independently verified with real wallet writes**. Treat it as a preview and review `docs/CLAIMVERIFIER_INTEGRATION.md`, `docs/EVIDENCE_INTELLIGENCE.md`, `docs/NETWORK_CONFIGURATION.md` and `docs/TESTING.md` before use. Claim outcomes do not alter MilestoneJudge decisions. Contract reads are scoped and may be incomplete; the UI does not fabricate records.

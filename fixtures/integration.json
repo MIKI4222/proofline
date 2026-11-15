@@ -1,0 +1,19 @@
+{
+  "assessment_version": 1,
+  "claim_id": 1,
+  "claim_owner": "0x15E7BefCf18D10563b1f4f5416C7163e879D9e19",
+  "claim_status": "ASSESSED",
+  "external_ref": "",
+  "last_conclusive_assessment": 1,
+  "last_verified_at": "2026-11-10T10:41:34.875775+00:00",
+  "latest_assessment": {
+    "assessment_number": 1,
+    "evidence_strength": "MODERATE",
+    "evidence_summary": "Two technical sources support scheduled automatic backups. One source demonstrates a restore procedure; the other only mentions the restore command.",
+    "observed_at": "2026-11-10T10:41:34.875775+00:00",
+    "overall_status": "SUPPORTED",
+    "source_count": 2
+  },
+  "source_count": 2,
+  "verification_status": "SUPPORTED"
+}
