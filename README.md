@@ -31,7 +31,7 @@ The explore, dashboard and personal lists load 12 newest IDs at a time with a ma
 
 - `genlayer-js@2.0.0-rc.3` pinned in the lockfile; `studioDevnet` preset.
 - Canonical RPC: `https://studio-dev.genlayer.com/api`, chain ID `61997`, currency GEN.
-- Contract: `0x2de4E341CAEaed62B19014C8E14aa7D874DE5880`.
+- MilestoneJudge contract: `0x99F8164EE5cBe67C723eA4044A50c79B96E0E0Ba`. ClaimVerifier: `0xAD841aD6C876dA20ecC380A71ADe8313B81d3C92`.
 - Reads use SDK `LATEST_FINAL` and validate response shapes with Zod. Writes use a provider-backed SDK client, `estimateTransactionFeesForWrite`, `writeContract`, `waitForDecision`, `waitForFinalization` and `isSuccessful`. Fee estimates here simulate the concrete write; this is a development approach, not a measured production fee profile.
 - React, TypeScript, Vite, React Router, Lucide, Tailwind utilities, Zod, Viem. App styling also uses custom CSS. All state comes from the public contract or wallet, except UI state and a pending transaction ID in local storage.
 - See the documents in `docs/` for details.
@@ -54,3 +54,9 @@ Connect this folder as a repository, or upload a built site. Build command `npm 
 ## ClaimVerifier integration — development preview
 
 Proofline includes a separate ClaimVerifier workspace for public claim reads, source inspection and assessment reports. The `/claims` routes support registration, source addition, verification and reassessment through the existing wallet flow. This implementation has **not been independently verified with real wallet writes**. Treat it as a preview and review `docs/CLAIMVERIFIER_INTEGRATION.md`, `docs/EVIDENCE_INTELLIGENCE.md`, `docs/NETWORK_CONFIGURATION.md` and `docs/TESTING.md` before use. Claim outcomes do not alter MilestoneJudge decisions. Contract reads are scoped and may be incomplete; the UI does not fabricate records.
+
+## MetricConsensus — development preview
+
+Proofline now includes a metrics workspace at `/metrics`: explore contract records, register a metric, append sources, request verification, inspect evidence reports and compare stored observations. User-supplied external references connect metrics to milestones or claims as supporting context only; results never change those contracts.
+
+The configured MetricConsensus contract is `0xd4efFc3B03B830c7a60e47769F2b41596B808a55` on Studio Dev. Read-only preflight confirmed deployed code, schema and a count of zero; no wallet writes or live end-to-end consensus were performed for this integration. Existing fee estimation is used; Transaction Kit and measured fee profiles are not yet integrated. Details, contract source, routes and limitations: [MetricConsensus integration](docs/METRICCONSENSUS_INTEGRATION.md).

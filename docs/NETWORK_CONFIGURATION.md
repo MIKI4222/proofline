@@ -1,3 +1,5 @@
 # Network configuration
 
-Use GenLayer Studio Dev only: chain ID 61997 (`0xf22d`), RPC `https://studio-dev.genlayer.com/api`, GEN. MilestoneJudge: `0x2de4E341CAEaed62B19014C8E14aa7D874DE5880`. ClaimVerifier: `0xa44D5A557a2B146e6aC5B8c674cA31d540d98175`. The frontend requests a network switch when needed and checks the active account and network again before signature. Both addresses were checked on the canonical RPC on 2026-11-15; Studio Dev can reset.
+Use GenLayer Studio Dev only: chain ID 61997 (`0xf22d`), RPC `https://studio-dev.genlayer.com/api`, GEN. MilestoneJudge: `0x99F8164EE5cBe67C723eA4044A50c79B96E0E0Ba`. ClaimVerifier: `0xAD841aD6C876dA20ecC380A71ADe8313B81d3C92`. The frontend requests a network switch when needed and checks the active account and network again before signature. Both current addresses were checked read-only on the canonical RPC during the MetricConsensus integration; Studio Dev can reset.
+
+MetricConsensus: `0xd4efFc3B03B830c7a60e47769F2b41596B808a55`; see [integration notes](METRICCONSENSUS_INTEGRATION.md).

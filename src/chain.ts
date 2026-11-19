@@ -1,3 +1,4 @@
+import {METRIC_ADDRESS} from './metrics/config';
 import {CLAIM_ADDRESS} from './claims/config';
 import {createClient,isSuccessful} from 'genlayer-js';
 import {studioDevnet} from 'genlayer-js/chains';
@@ -16,9 +17,9 @@ export async function status(id:number,fresh=false):Promise<Status>{return statu
 export async function submission(id:number,n:number,fresh=false):Promise<Submission>{return submissionSchema.parse(await read('get_submission',[id,n],fresh));}
 export async function verification(id:number,n:number,fresh=false):Promise<Verification>{return verificationSchema.parse(await read('get_verification',[id,n],fresh));}
 export type WriteName='create_milestone'|'submit_evidence'|'submit_revision'|'evaluate_milestone';
-export type Write={functionName:WriteName;args:(string|number|bigint)[];target?:'milestone'} | {functionName:'register_claim'|'add_evidence_source'|'verify_claim'|'reassess_claim';args:(string|number|bigint)[];target:'claim'};
+export type Write={functionName:WriteName;args:(string|number|bigint)[];target?:'milestone'} | {functionName:'register_claim'|'add_evidence_source'|'verify_claim'|'reassess_claim';args:(string|number|bigint)[];target:'claim'} | {functionName:'register_metric'|'add_metric_source'|'verify_metric';args:(string|number|bigint)[];target:'metric'};
 // SDK's EIP-1193 provider has a broader structural type; cast at this boundary only.
 export function walletClient(provider:Provider,account:`0x${string}`){return createClient({chain:studioDevnet,account,provider:provider as NonNullable<Parameters<typeof createClient>[0]>['provider']});}
-export async function estimate(provider:Provider,account:`0x${string}`,write:Write){return walletClient(provider,account).estimateTransactionFeesForWrite({address:write.target==='claim'?CLAIM_ADDRESS:CONFIG.contract,functionName:write.functionName,args:write.args});}
-export async function submit(provider:Provider,account:`0x${string}`,write:Write,fees:Awaited<ReturnType<typeof estimate>>){return walletClient(provider,account).writeContract({address:write.target==='claim'?CLAIM_ADDRESS:CONFIG.contract,functionName:write.functionName,args:write.args,fees:{distribution:fees.distribution,feeValue:fees.feeValue}}) as Promise<`0x${string}`>;}
+export async function estimate(provider:Provider,account:`0x${string}`,write:Write){return walletClient(provider,account).estimateTransactionFeesForWrite({address:write.target==='claim'?CLAIM_ADDRESS:write.target==='metric'?METRIC_ADDRESS:CONFIG.contract,functionName:write.functionName,args:write.args});}
+export async function submit(provider:Provider,account:`0x${string}`,write:Write,fees:Awaited<ReturnType<typeof estimate>>){return walletClient(provider,account).writeContract({address:write.target==='claim'?CLAIM_ADDRESS:write.target==='metric'?METRIC_ADDRESS:CONFIG.contract,functionName:write.functionName,args:write.args,fees:{distribution:fees.distribution,feeValue:fees.feeValue}}) as Promise<`0x${string}`>;}
 export {isSuccessful};
