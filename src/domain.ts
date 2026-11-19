@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const CONFIG = {chainId:61997, chainHex:'0xf22d', rpc:'https://studio-dev.genlayer.com/api', contract:'0x2de4E341CAEaed62B19014C8E14aa7D874DE5880' as const, explorer:'https://explorer-studio-next.genlayer.com/address/0x2de4E341CAEaed62B19014C8E14aa7D874DE5880', txExplorer:'https://explorer-studio-dev.genlayer.com/tx/'};
+export const CONFIG = {chainId:61997, chainHex:'0xf22d', rpc:'https://studio-dev.genlayer.com/api', contract:'0x99F8164EE5cBe67C723eA4044A50c79B96E0E0Ba' as const, explorer:'https://explorer-studio-next.genlayer.com/address/0x99F8164EE5cBe67C723eA4044A50c79B96E0E0Ba', txExplorer:'https://explorer-studio-dev.genlayer.com/tx/'};
 export const statuses=['OPEN','SUBMITTED','REVISION_REQUIRED','INCONCLUSIVE','APPROVED','REJECTED','EXHAUSTED'] as const;
 export const milestoneSchema=z.object({id:z.number().int().positive(),creator:z.string(),executor:z.string(),project_name:z.string(),task_description:z.string(),expected_deliverable:z.string(),acceptance_criteria:z.array(z.string()),reference_url:z.string(),deadline:z.number(),max_submissions:z.number(),submission_count:z.number(),status:z.enum(statuses),created_at:z.string()});
 export const statusSchema=z.object({milestone_id:z.number(),status:z.enum(statuses),submission_count:z.number(),max_submissions:z.number(),attempts_left:z.number(),deadline:z.number(),deadline_passed:z.boolean(),next_action:z.string()});
