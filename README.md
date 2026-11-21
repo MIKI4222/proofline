@@ -4,7 +4,7 @@ A static React application for creating and verifying work milestones with the e
 
 ## Status: development preview, not production-verified
 
-The public contract read path was exercised against the supplied contract on chain 61997 on 2026-11-13: count, milestone, status, submission and verification all returned real data. No live wallet write was performed. The four write paths, wallet signing, fee simulation, decision/finalization polling and recovery are implemented but **not verified with a live wallet transaction**. Do not treat this as production-ready without completing the live checks in `docs/GENLAYER_INTEGRATION.md`, including browser-wallet compatibility and fee estimation for each branch. Studio Dev can reset or change.
+The public MilestoneJudge read path was exercised on chain 61997 on 2026-11-13 against a previous deployment: count, milestone, status, submission and verification returned data at that time. A read-only recheck on 2026-11-21 found zero records on each of the three currently configured contracts; state may change or reset. No live wallet write was performed. The four write paths, wallet signing, fee simulation, decision/finalization polling and recovery are implemented but **not verified with a live wallet transaction**. Do not treat this as production-ready without completing the live checks in `docs/GENLAYER_INTEGRATION.md`, including browser-wallet compatibility and fee estimation for each branch. Studio Dev can reset or change.
 
 ## Run locally
 
